@@ -187,7 +187,12 @@ function placePiece(x, y) {
 }
 
 // 检查胜负
+// 修改后的胜负判断逻辑
 function checkWin(x, y) {
+    // 添加边界检查
+    if (x < 0 || x >= BOARD_SIZE || y < 0 || y >= BOARD_SIZE) {
+        return false;
+    }
     const directions = [
         [1, 0],  // 水平
         [0, 1],  // 垂直
