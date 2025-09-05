@@ -22,9 +22,15 @@ function addStudent(id, name, age, major) {
     return { success: false, message: `学号 ${id} 已存在，请使用其他学号。` };
   }
   
-  // 验证年龄是否为数字
-  if (isNaN(age) || age <= 0) {
-    return { success: false, message: '年龄必须是正整数。' };
+  // 增强的输入验证
+  function validateStudentInput(id, name, age, major) {
+      if (!id || !name || !major) {
+          return '所有字段都必须填写';
+      }
+      if (isNaN(age) || age < 1 || age > 120) {
+          return '年龄必须是1-120之间的数字';
+      }
+      return null;
   }
   
   // 创建新学生并添加到数组
