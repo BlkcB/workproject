@@ -1,0 +1,281 @@
+/* 五子棋游戏样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    padding: 20px;
+}
+
+.game-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 30px;
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 0 20px;
+}
+
+.player-info {
+    display: flex;
+    gap: 30px;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.player.current {
+    color: #2c3e50;
+    transform: scale(1.1);
+}
+
+.player-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.player-color.black {
+    background-color: #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.player-color.white {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.game-controls {
+    display: flex;
+    gap: 15px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#restart-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#restart-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+#undo-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+#undo-btn:hover {
+    background-color: #1976D2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.board-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #DEB887;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#game-board {
+    border: 2px solid #8B4513;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #DEB887;
+}
+
+.game-message {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: rgba(240, 240, 240, 0.8);
+    border-radius: 8px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-instructions {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: rgba(240, 240, 240, 0.8);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.game-instructions h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.game-instructions ul {
+    list-style-position: inside;
+    line-height: 1.6;
+    color: #666;
+}
+
+.game-instructions li {
+    margin-bottom: 8px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 20px 15px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    .game-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .player-info {
+        gap: 20px;
+    }
+    
+    #game-board {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+    
+    .game-controls {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    button {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .game-container {
+        padding: 15px 10px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    #game-board {
+        max-width: 300px;
+    }
+    
+    .player-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .game-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    button {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .game-message {
+        font-size: 18px;
+    }
+}
+
+/* 动画效果 */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.winner {
+    animation: pulse 1s infinite;
+    color: #4CAF50 !important;
+}
+
+/* 棋盘格线样式 */
+.line-grid {
+    stroke: #8B4513;
+    stroke-width: 1;
+}
+
+/* 棋子阴影 */
+.piece-shadow {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}

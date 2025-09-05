@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五子棋游戏</title>
+    <link rel="stylesheet" href="gomoku.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>五子棋游戏</h1>
+        
+        <div class="game-info">
+            <div class="player-info">
+                <div class="player current" id="player-black">
+                    <div class="player-color black"></div>
+                    <span>黑方回合</span>
+                </div>
+                <div class="player" id="player-white">
+                    <div class="player-color white"></div>
+                    <span>白方回合</span>
+                </div>
+            </div>
+            
+            <div class="game-controls">
+                <button id="restart-btn">重新开始</button>
+                <button id="undo-btn">悔棋</button>
+            </div>
+        </div>
+        
+        <div class="board-container">
+            <canvas id="game-board" width="600" height="600"></canvas>
+        </div>
+        
+        <div class="game-message" id="game-message">
+            游戏开始，请黑方落子
+        </div>
+        
+        <div class="game-instructions">
+            <h3>游戏规则</h3>
+            <ul>
+                <li>黑方先行，双方轮流在棋盘上放置棋子</li>
+                <li>率先在横、竖或斜方向连成五子者获胜</li>
+                <li>点击棋盘落子，点击"重新开始"按钮重置游戏</li>
+                <li>支持悔棋功能，但只能悔一步</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="gomoku.js"></script>
+</body>
+</html>
